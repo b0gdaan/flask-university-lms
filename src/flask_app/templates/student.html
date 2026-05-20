@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Page</title>
+</head>
+<body>
+    <h2>Welcome, Student!</h2>
+    <h3>Materials:</h3>
+    <ul>
+        {% for material in materials %}
+            <li>{{ material }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>

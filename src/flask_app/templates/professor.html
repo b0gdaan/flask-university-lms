@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Professor Page</title>
+</head>
+<body>
+    <h2>Welcome, Professor!</h2>
+    <h3>Upload the material:</h3>
+    <form method="post">
+        <input type="hidden" name="action" value="upload">
+        <textarea name="material" rows="4" cols="50"></textarea><br><br>
+        <input type="submit" value="Загрузить">
+    </form>
+
+    <h3>Materials:</h3>
+    <ul>
+        {% for index, material in materials %}
+            <li>{{ material }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Edit the material:</h3>
+    <form method="post">
+        <input type="hidden" name="action" value="edit">
+        <label for="index">The index of the material:</label>
+        <input type="number" id="index" name="index"><br><br>
+        <textarea name="new_text" rows="4" cols="50"></textarea><br><br>
+        <input type="submit" value="Редактировать">
+    </form>
+
+    <a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>

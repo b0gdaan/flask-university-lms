@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Page</title>
+</head>
+<body>
+    <h2>Welcome, Admin!</h2>
+    <h3>Assign a user as a professor:</h3>
+    <form method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username"><br><br>
+        <input type="submit" value="Appoint a professor">
+    </form>
+    <h3>List of users:</h3>
+    <ul>
+        {% for username, user in users.items() %}
+            <li>{{ username }} - {{ user.role }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>
