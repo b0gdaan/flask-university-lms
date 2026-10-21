@@ -56,3 +56,15 @@ Navigate to `http://localhost:5000` and log in with:
 ## Tech Stack
 
 `Python` · `Flask` · `Jinja2` · `HTML`
+
+
+## Demo scope and security
+
+Run this coursework locally only. The listed accounts are intentional public demo
+credentials, not leaked production passwords. Users and materials are held in memory.
+The app uses a random session-signing key per process unless `SECRET_KEY` is supplied,
+and the development server binds to loopback with debug disabled.
+
+This is not a deployable LMS: persistent storage, password hashing, CSRF protection,
+rate limiting and a fuller authorization model are still needed. A random session key
+does not make the publicly known demo accounts safe for internet deployment.

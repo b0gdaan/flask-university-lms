@@ -1,7 +1,12 @@
+import os
+import secrets
+
 from flask import Flask, render_template, request, redirect, url_for, session
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'
+# Random per-process key for the local demo; set SECRET_KEY for stable sessions.
+app.secret_key = os.environ.get("SECRET_KEY") or secrets.token_hex(32)
+app.config.update(SESSION_COOKIE_HTTPONLY=True, SESSION_COOKIE_SAMESITE="Lax")
 
 users = {
     "admin": {"password": "adminpass", "role": "admin"},
@@ -82,4 +87,4 @@ def logout():
     return redirect(url_for('login'))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="127.0.0.1", debug=False)
